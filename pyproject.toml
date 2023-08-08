@@ -8,6 +8,7 @@ packages = [{include = "spacy_playground"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
+spacy = "^3.6.0"
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.4.0"
