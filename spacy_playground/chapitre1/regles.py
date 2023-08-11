@@ -15,6 +15,8 @@ Tu peux même écrire des règles qui utilisent les prédictions d'un modèle.
 
 Par exemple, trouve le mot "capture" seulement si c'est un verbe, pas un nom.
 
+Doc: https://spacy.io/api/matcher
+
 """
 import spacy
 
