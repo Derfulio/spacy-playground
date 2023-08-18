@@ -23,6 +23,7 @@ Les doc.ents sont modifiables, donc nous pouvons ajouter manuellement des entit�
 
 # Crée un objet nlp
 import spacy
+
 nlp = spacy.blank("fr")
 
 # Importe les classes Doc et Span
@@ -102,7 +103,7 @@ for token in doc:
     # Vérifie si le token courant est un nom propre
     if token.pos_ == "PROPN":
         # Vérifie si le token suivant est un verbe
-        if token.i + 1 < len(doc) and doc[token.i+1].pos_ == "VERB":
+        if token.i + 1 < len(doc) and doc[token.i + 1].pos_ == "VERB":
             result = token.text
             print("Trouvé un nom propre avant un verbe :", result)
 

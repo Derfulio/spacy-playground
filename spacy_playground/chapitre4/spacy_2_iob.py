@@ -6,7 +6,12 @@ NOTE: not working yet, maybe useless
 """
 import spacy
 from spacy.tokens import Doc, DocBin
-from spacy.training import offsets_to_biluo_tags, biluo_to_iob, biluo_tags_to_offsets, biluo_tags_to_spans
+from spacy.training import (
+    offsets_to_biluo_tags,
+    biluo_to_iob,
+    biluo_tags_to_offsets,
+    biluo_tags_to_spans,
+)
 
 TRAIN_DATA = [
     ("Qui est Shaka Khan?", {"entities": [(8, 18, "PERSON")]}),
@@ -15,7 +20,11 @@ TRAIN_DATA = [
 
 nlp = spacy.load("fr_core_news_sm")
 
-PIPES_TO_TRAIN = ["ner", "nerer", "whatever"] #Bah oui, si je veux les entrainer, je ne dois pas les avoir dans mon trainset
+PIPES_TO_TRAIN = [
+    "ner",
+    "nerer",
+    "whatever",
+]  # Bah oui, si je veux les entrainer, je ne dois pas les avoir dans mon trainset
 disabled_pipes = [pipe for pipe in PIPES_TO_TRAIN if pipe in nlp.pipe_names]
 
 # Déclare l'extension de propriété de Doc "biluo"
@@ -32,7 +41,7 @@ with nlp.select_pipes(disable=disabled_pipes):
         print(doc.ents)
         print([(ent.text, ent.label_) for ent in doc.ents])
         # Convert to biluo format
-        tags = offsets_to_biluo_tags(doc, annot['entities'])
+        tags = offsets_to_biluo_tags(doc, annot["entities"])
         doc._.biluo = tags
         print(tags)
         # Convert biluo to Span list and add to doc
@@ -44,7 +53,9 @@ with nlp.select_pipes(disable=disabled_pipes):
         # outside: same as blocked I guess, but more like "there's nothing to see here, you can forget it" --> Outside
         # Note: I have nothing to say that the span is correct, not the type. Maybe I should create an "Unknown" tag to remember this by default
         # Note: To be able to have this level of distinction between tags is awesome! Would be great for a feedback loop
-        doc.set_ents(entities=docents, blocked=[], missing=[], outside=[], default="outside")
+        doc.set_ents(
+            entities=docents, blocked=[], missing=[], outside=[], default="outside"
+        )
         print(doc.ents)
         print([(ent.text, ent.label_) for ent in doc.ents])
         # then convert L->I and U->B to have IOB tags for the tokens in the doc

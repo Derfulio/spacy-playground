@@ -26,6 +26,7 @@ _ Extensions de méthodes
 
 """
 import spacy
+
 # Extensions d'attributs
 # Définit une valeur par défaut qui peut être modifiée
 from spacy.tokens import Token
@@ -50,6 +51,7 @@ print("Color :    ", [token._.is_color for token in doc])
 # Définit une fonction getter et une fonction optionnelle setter
 # Le getter n'est appelé que quand tu récupères la valeur de l'attribut
 
+
 # Définit la fonction getter
 def get_is_color(token):
     colors = ["rouge", "jaune", "bleu"]
@@ -65,10 +67,12 @@ print(doc[3]._.is_color, "-", doc[3].text)
 # Les extensions de Span devraient presque toujours utiliser un getter
 from spacy.tokens import Span
 
+
 # Définit la fonction getter
 def get_has_color(span):
     colors = ["rouge", "jaune", "bleu"]
     return any(token.text in colors for token in span)
+
 
 # Définit l'extension de Span avec le getter
 Span.set_extension("has_color", getter=get_has_color)
@@ -82,10 +86,12 @@ print(doc[0:2]._.has_color, "-", doc[0:2].text)
 # Te permet de passer des arguments à la fonction d'extension
 from spacy.tokens import Doc
 
+
 # Définit la méthode avec des arguments
 def has_token(doc, token_text):
     in_doc = token_text in [token.text for token in doc]
     return in_doc
+
 
 # Définit l'extension du Doc avec la méthode
 Doc.set_extension("has_token", method=has_token)
@@ -105,10 +111,12 @@ doc[3]._.is_country = True
 # Affiche le texte du token et l'attribut is_country pour tous les tokens
 print([(token.text, token._.is_country) for token in doc])
 
+
 # Définis la fonction getter qui prend en argument un token
 # et retourne son texte inversé
 def get_reversed(token):
     return token.text[::-1]
+
 
 # Déclare l'extension de propriété de Token "reversed"
 # avec le getter get_reversed
@@ -120,6 +128,7 @@ for token in doc:
     print("reversed :", token._.reversed)
 
 # Attributs étendus
+
 
 # Définis la fonction getter
 def get_has_number(doc):
@@ -139,6 +148,7 @@ print("has_number :", doc._.has_number)
 # Par exemple : doc._.some_method("argument").
 # Le premier argument passé à la méthode est toujours le Doc,
 # le Token ou le Span sur lequel la méthode a été appelée.
+
 
 # Définis la méthode
 def to_html(span, tag):

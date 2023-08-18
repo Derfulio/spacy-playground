@@ -16,7 +16,7 @@ nlp = spacy.load("fr_core_news_sm")
 # Attributs de pipeline
 # nlp.pipe_names: liste de noms des composants du pipeline
 print(nlp.pipe_names)
-#['tok2vec', 'morphologizer', 'parser', 'attribute_ruler', 'lemmatizer', 'ner']
+# ['tok2vec', 'morphologizer', 'parser', 'attribute_ruler', 'lemmatizer', 'ner']
 
 # nlp.pipeline : liste de tuples (name, component)
 print(nlp.pipeline)
@@ -34,6 +34,7 @@ print(nlp.pipeline)
 # Peut être ajouté avec la méthode nlp.add_pipe
 from spacy import Language
 
+
 # Définit un composant personnalisé
 @Language.component("custom_component")
 def custom_component_function(doc):
@@ -42,6 +43,7 @@ def custom_component_function(doc):
     print("Longueur du doc :", len(doc))
     # Retourne l'objet doc
     return doc
+
 
 # Ajoute le composant en premier dans le pipeline
 nlp.add_pipe("custom_component", first=True)

@@ -32,6 +32,7 @@ print("animal_patterns :", animal_patterns)
 matcher = PhraseMatcher(nlp.vocab)
 matcher.add("ANIMAL", animal_patterns)
 
+
 # Définis le composant personnalisé
 @Language.component("animal_component")
 def animal_component_function(doc):

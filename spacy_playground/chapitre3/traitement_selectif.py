@@ -22,7 +22,7 @@ text = (
 )
 
 # Tokenise seulement le texte
-#doc = nlp(text)
+# doc = nlp(text)
 doc = nlp.make_doc(text)
 print([token.text for token in doc])
 
