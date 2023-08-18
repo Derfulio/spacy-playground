@@ -8,8 +8,8 @@ import spacy
 # Crée un objet nlp français vide
 nlp = spacy.blank("fr")
 
-#contient le pipeline de traitement
-#inclut des règles spécifiques à la langue pour la tokenisation etc.
+# contient le pipeline de traitement
+# inclut des règles spécifiques à la langue pour la tokenisation etc.
 
 # Créé en traitant une chaine de caractères avec l'objet nlp
 doc = nlp("Bonjour monde !")
@@ -26,7 +26,7 @@ token = doc[1]
 # Obtiens le texte du token avec l'attribut .text
 print(token.text)
 
-#L'objet Span
+# L'objet Span
 
 # Une portion du Doc est un objet Span
 span = doc[1:3]

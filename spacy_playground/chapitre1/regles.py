@@ -24,12 +24,12 @@ import spacy
 # Listes de dictionnaires, un par token
 
 # Recherche de correspondances exactes des textes
-#[{"TEXT": "iPhone"}, {"TEXT": "X"}]
+# [{"TEXT": "iPhone"}, {"TEXT": "X"}]
 
 # Recherche d'attributs lexicaux
 # [{"LOWER": "iphone"}, {"LOWER": "x"}]
 
-#Recherche de n'importe quel attribut des tokens
+# Recherche de n'importe quel attribut des tokens
 # [{"LEMMA": "acheter"}, {"POS": "DET"}, {"POS": "NOUN"}]
 
 # Importe le Matcher
@@ -72,7 +72,7 @@ pattern = [
     {"LOWER": "monde"},
     {"LOWER": "fifa"},
     {"IS_DIGIT": True},
-    {"IS_PUNCT": True}
+    {"IS_PUNCT": True},
 ]
 matcher.add("FIFA_PATTERN", [pattern])
 doc = nlp("Coupe du Monde FIFA 2018 : la France a gagné !")
@@ -89,12 +89,14 @@ for match_id, start, end in matches:
 # Ce motif trouvera "photographiait les fleurs" et "photographiera les oiseaux".
 
 pattern = [
-    {"LEMMA": "photographier", "POS": "VERB"},#plusieurs critères sur un même token
+    {"LEMMA": "photographier", "POS": "VERB"},  # plusieurs critères sur un même token
     {"POS": "DET"},
-    {"POS": "NOUN"}
+    {"POS": "NOUN"},
 ]
 matcher.add("PHOTO_PATTERN", [pattern])
-doc = nlp("Avant elle photographiait les fleurs. Désormais elle photographiera les oiseaux.")
+doc = nlp(
+    "Avant elle photographiait les fleurs. Désormais elle photographiera les oiseaux."
+)
 matches = matcher(doc)
 for match_id, start, end in matches:
     # Obtiens le span en correspondance
@@ -105,8 +107,8 @@ for match_id, start, end in matches:
 pattern = [
     {"LEMMA": "acheter", "POS": "VERB"},
     {"POS": "DET"},
-    {"POS": "ADJ", "OP": "?"}, # optionnel : trouve 0 or 1 fois
-    {"POS": "NOUN"}
+    {"POS": "ADJ", "OP": "?"},  # optionnel : trouve 0 or 1 fois
+    {"POS": "NOUN"},
 ]
 matcher.add("OP_PATTERN_1", [pattern])
 doc = nlp("J'ai acheté un nouveau smartphone. Maintenant j'achète des applis.")

@@ -24,7 +24,7 @@ for token in doc:
     # Vérifie si le token ressemble à un nombre
     if token.like_num:
         # Obtiens le token suivant dans le document
-        next_token = doc[token.i+1]
+        next_token = doc[token.i + 1]
         # Vérifie si le texte du token suivant est égal à "%"
         if next_token.text == "%":
             print("Pourcentage trouvé :", token.text)

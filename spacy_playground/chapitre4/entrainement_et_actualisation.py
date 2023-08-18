@@ -131,8 +131,8 @@ docs = [doc1, doc2]  # et ainsi de suite...
 # _ données d'entraînement : utilisées pour actualiser le modèle
 # _ données de développement : utilisées pour évaluer le modèle
 random.shuffle(docs)
-train_docs = docs[:len(docs) // 2]
-dev_docs = docs[len(docs) // 2:]
+train_docs = docs[: len(docs) // 2]
+dev_docs = docs[len(docs) // 2 :]
 
 # Comme mentionné précédemment, nous n'avons pas seulement besoin de données pour entraîner le modèle.
 # Nous voulons aussi pouvoir évaluer sa précision sur des exemples qu'il n'a pas rencontrés pendant son entraînement.

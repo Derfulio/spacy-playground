@@ -42,11 +42,11 @@ pattern = [{"LOWER": "the"}, {"LOWER": "worldo"}]
 pattern_r = [{"TEXT": {"REGEX": "friend"}}]
 matcher.add("HelloWorld", [pattern])
 matcher.add("Regexp", [pattern_r])
-matcher.add('test-rule', [[{"LOWER": {"REGEX": "(?=the)"}}]], on_match=None)
+matcher.add("test-rule", [[{"LOWER": {"REGEX": "(?=the)"}}]], on_match=None)
 
 patterns = [
     [{"LOWER": "hello"}, {"IS_PUNCT": True}, {"LOWER": "world"}],
-    [{"LOWER": "hello"}, {"LOWER": "world"}]
+    [{"LOWER": "hello"}, {"LOWER": "world"}],
 ]
 matcher.add("HelloWorld", patterns)
 
@@ -69,4 +69,6 @@ for token in doc:
     lefts = [(t.text, t.pos_) for t in token.lefts]
     rights = [(t.text, t.pos_) for t in token.rights]
     # Ceci sert uniquement au formatage de l'affichage
-    print(f"{token_text:<12}{token_pos:<10}{token_dep:<10}{token_head_text:<10}{token_head_pos:<10}")
+    print(
+        f"{token_text:<12}{token_pos:<10}{token_dep:<10}{token_head_text:<10}{token_head_pos:<10}"
+    )

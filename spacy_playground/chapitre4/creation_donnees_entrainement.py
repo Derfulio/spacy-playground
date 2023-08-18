@@ -20,20 +20,22 @@ Création de données d'entrainement
 
 """
 
-TEXTS = ["Comment précommander l'iPhone X",
-         "l'iPhone X arrive",
-         "Dois-je dépenser 1.000 € pour l'iPhone X ?",
-         "Les tests de l'iPhone 8 sont là",
-         'iPhone 11 contre iPhone 8 : quelles sont les différences ?',
-         'Il me faut un nouveau téléphone ! Des suggestions à me faire ?']
+TEXTS = [
+    "Comment précommander l'iPhone X",
+    "l'iPhone X arrive",
+    "Dois-je dépenser 1.000 € pour l'iPhone X ?",
+    "Les tests de l'iPhone 8 sont là",
+    "iPhone 11 contre iPhone 8 : quelles sont les différences ?",
+    "Il me faut un nouveau téléphone ! Des suggestions à me faire ?",
+]
 
 import json
 import spacy
 from spacy.matcher import Matcher
 from spacy.tokens import Span, DocBin
 
-#with open("exercises/fr/iphone.json", encoding="utf8") as f:
- #   TEXTS = json.loads(f.read())
+# with open("exercises/fr/iphone.json", encoding="utf8") as f:
+#   TEXTS = json.loads(f.read())
 
 nlp = spacy.blank("fr")
 matcher = Matcher(nlp.vocab)

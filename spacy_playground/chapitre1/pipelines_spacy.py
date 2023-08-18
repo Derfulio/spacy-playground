@@ -22,17 +22,18 @@ Doc d'installation ici: https://spacy.io/usage/models
 """
 
 import spacy
-#Paquets de pipelines
-# Un paquet avec le label fr_core_news_sm
-#$ python -m spacy download fr_core_news_sm
-# Version poetry
-#$ poetry run spacy download fr_core_news_sm
 
-#Poids binaires
-#Vocabulaire
-#Méta-information
-#Fichier de configuration
-#Prédiction des étiquettes de partie de discours
+# Paquets de pipelines
+# Un paquet avec le label fr_core_news_sm
+# $ python -m spacy download fr_core_news_sm
+# Version poetry
+# $ poetry run spacy download fr_core_news_sm
+
+# Poids binaires
+# Vocabulaire
+# Méta-information
+# Fichier de configuration
+# Prédiction des étiquettes de partie de discours
 
 # Charge le petit pipeline français
 nlp = spacy.load("fr_core_news_sm")
@@ -60,7 +61,7 @@ doc = nlp("Apple conçoit le nouvel iPhone à Cupertino.")
 
 # Itère sur les entités prédites Les entités nommées sont des "objets du monde réel" auxquels on assigne un nom -
 # par exemple, une personne, une organisation ou un pays.
-for ent in doc.ents: # doc.ents --> entités nommées prédites par le modèle.
+for ent in doc.ents:  # doc.ents --> entités nommées prédites par le modèle.
     # Elle retourne un itérateur d'objets Span,
     # donc nous pouvons imprimer le texte de l'entité et son label en utilisant l'attribut .label_.
     # Affiche le texte de l'entité et son label

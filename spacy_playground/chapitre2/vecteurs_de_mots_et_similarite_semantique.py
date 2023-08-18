@@ -103,7 +103,9 @@ token1, token2 = doc[0], doc[2]
 similarity = token1.similarity(token2)
 print(similarity)
 
-doc = nlp("C'était un super restaurant. Ensuite nous sommes allés dans un bar vraiment sympa.")
+doc = nlp(
+    "C'était un super restaurant. Ensuite nous sommes allés dans un bar vraiment sympa."
+)
 
 # Crée des spans pour "super restaurant" et "bar vraiment sympa"
 span1 = doc[3:5]
